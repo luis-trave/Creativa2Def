@@ -14,4 +14,4 @@ os.system('sudo docker run --rm -u root -v "$(pwd)":/home/gradle/project -w /hom
 os.chdir(os.path.expanduser("~"))
 
 os.system('sudo docker-compose build')
-os.system('sudo docker-compose up')
+
