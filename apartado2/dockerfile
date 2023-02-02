@@ -3,7 +3,7 @@ FROM ubuntu:18.04
 EXPOSE 9080
 
 ARG numGrupo
-ENV GROUP_NUMBER ${numGrupo: 36}
+ENV GROUP_NUMBER ${numGrupo:-36}
 
 RUN apt-get update \
     && apt-get install -y git
