@@ -1,0 +1,45 @@
+version: '3.7'
+
+services:
+  productpage:
+    build:
+      context: .
+      dockerfile: dockerfile_productpage
+    image: 36/productpage 
+    container_name: 36-productpage
+    ports:
+     - '9080:9080'
+    environment:
+     - GROUP_NUMBER=36
+  details:
+    build:
+      context: .
+      dockerfile: dockerfile_details
+    image: 36/details
+    container_name: 36-details
+    ports:
+     - '9080'
+    environment:
+     - ENABLE_EXTERNAL_BOOK_SERVICE=true
+     - SERVICE_VERSION=v3
+  reviews:
+    build:
+      context: practica_creativa2/bookinfo/src/reviews/reviews-wlpcfg
+    image: 36/reviews
+    container_name: 36-reviews
+    ports:
+     - '9080'
+    environment:
+     - ENABLE_RATINGS=true
+     - STAR_COLOR=red
+     - SERVICE_VERSION=v3
+  ratings:
+    build:
+      context: .
+      dockerfile: dockerfile_ratings
+    image: 36/ratings
+    container_name: 36-ratings
+    ports:
+     - '9080'
+    environment:
+     - SERVICE_VERSION=v3
