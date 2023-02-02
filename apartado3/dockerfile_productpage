@@ -14,4 +14,10 @@ WORKDIR practica_creativa2/bookinfo/src/productpage
 
 RUN pip3 install -r requirements.txt
 
+WORKDIR /practica_creativa2/bookinfo/src/productpage/templates/
+RUN sed -i "s/Simple\sBookstore\sApp/Simple Bookstore App [${GROUP_NUMBER}]/g" index.html
+RUN sed -i "s/Simple\sBookstore\sApp/Simple Bookstore App [${GROUP_NUMBER}]/g" productpage.html
+
+WORKDIR practica_creativa2/bookinfo/src/productpage
+
 CMD python3 productpage.py 9080
