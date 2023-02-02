@@ -20,7 +20,7 @@ fout = open('productpage.html', 'w')
 for line in fin:
 	# Cambiamos el titlte del html con la variable recibida del python
 	if '{% block title %}Simple Bookstore App{% endblock %}' in line :
-		fout.write(line.replace('{% block title %}Simple Bookstore App{% endblock %}', '{% block title %}Simple Bookstore App [{{ GROUP_NUMBER }}]{% endblock %}'))
+		fout.write(line.replace('{% block title %}Simple Bookstore App{% endblock %}', '{% block title %}Simple Bookstore App [36]{% endblock %}'))
 	else :
 		fout.write(line)
 
