@@ -15,6 +15,6 @@ WORKDIR practica_creativa2/bookinfo/src/productpage
 
 RUN pip3 install -r requirements.txt
 
-RUN sed -i "s/Simple Bookstore App/ [$GROUP_NUMBER ]/g" templates/productpage.html
+RUN sed -i '/Simple Bookstore App/c {% block title %}({{ GROUP_NUMBER }}) Simple Bookstore App{% endblock %}' templates/productpage.html
 
 CMD python3 productpage_monolith.py 9080
