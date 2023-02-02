@@ -13,5 +13,6 @@ os.chdir('practica_creativa2/bookinfo/src/reviews')
 os.system('sudo docker run --rm -u root -v "$(pwd)":/home/gradle/project -w /home/gradle/project gradle:4.8.1 gradle clean build')
 os.chdir(os.path.expanduser("~"))
 
-os.system('sudo docker-compose build')
+#sudo docker-compose build
+#sudo docker-compose up
 
