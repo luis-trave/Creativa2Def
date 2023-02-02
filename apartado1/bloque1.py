@@ -11,6 +11,7 @@ call(['pip3', 'install', '-r', 'requirements.txt'])
 os.chdir('practica_creativa2/bookinfo/src/productpage')
 
 os.environ['GROUP_NUMBER'] = '36'
+numGrupo = os.environ.get('GROUP_NUMBER')
 
 os.chdir('templates')
 call(['mv', 'productpage.html', 'productpage_temporal.html'])
@@ -20,7 +21,7 @@ fout = open('productpage.html', 'w')
 for line in fin:
 	# Cambiamos el titlte del html con la variable recibida del python
 	if '{% block title %}Simple Bookstore App{% endblock %}' in line :
-		fout.write(line.replace('{% block title %}Simple Bookstore App{% endblock %}', '{% block title %}Simple Bookstore App [36]{% endblock %}'))
+		fout.write(line.replace('{% block title %}Simple Bookstore App{% endblock %}', '{% block title %}Simple Bookstore App [{{numGrupo}}]{% endblock %}'))
 	else :
 		fout.write(line)
 
