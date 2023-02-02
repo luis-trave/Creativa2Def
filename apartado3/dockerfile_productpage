@@ -2,8 +2,9 @@ FROM python:3.7.7-slim
 
 EXPOSE 9080
 
-RUN apt-get update \
-    && apt-get install -y git
+ENV GROUP_NUMBER=${GROUP_NUMBER}
+RUN apt-get update
+RUN apt-get install -y git
 RUN git clone https://github.com/CDPS-ETSIT/practica_creativa2.git
 RUN apt-get update
 RUN apt-get install -y python3-pip
@@ -13,8 +14,8 @@ WORKDIR practica_creativa2/bookinfo/src/productpage
 RUN pip3 install -r requirements.txt
 
 WORKDIR /practica_creativa2/bookinfo/src/productpage/templates/
-RUN sed -i "s/Simple\sBookstore\sApp/Simple Bookstore App [36]/g" index.html
-RUN sed -i "s/Simple\sBookstore\sApp/Simple Bookstore App [36]/g" productpage.html
+RUN sed -i "s/Simple\sBookstore\sApp/Simple Bookstore App [GROUP_NUMBER]/g" index.html
+RUN sed -i "s/Simple\sBookstore\sApp/Simple Bookstore App [GROUP_NUMBER]/g" productpage.html
 
 WORKDIR practica_creativa2/bookinfo/src/productpage
 
