@@ -2,7 +2,7 @@ FROM python:3.7.7-slim
 
 EXPOSE 9080
 
-ENV GROUP_NUMBER=${GROUP_NUMBER}
+ENV GROUP_NUMBER=0
 RUN apt-get update
 RUN apt-get install -y git
 RUN git clone https://github.com/CDPS-ETSIT/practica_creativa2.git
@@ -14,6 +14,6 @@ WORKDIR practica_creativa2/bookinfo/src/productpage
 RUN pip3 install -r requirements.txt
 
 WORKDIR /practica_creativa2/bookinfo/src/productpage/templates/
-CMD sed -i "s/Simple\sBookstore\sApp/Simple Bookstore App [${GROUP_NUMBER}]/g" index.html; \
-    sed -i "s/Simple\sBookstore\sApp/Simple Bookstore App [${GROUP_NUMBER}]/g" productpage.html; \
+CMD sed -i "s/Simple\sBookstore\sApp/Simple Bookstore App [36]/g" index.html; \
+    sed -i "s/Simple\sBookstore\sApp/Simple Bookstore App [36]/g" productpage.html; \
     python3 /practica_creativa2/bookinfo/src/productpage/productpage_monolith.py 9080
