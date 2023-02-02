@@ -14,7 +14,7 @@ os.environ['GROUP_NUMBER'] = '36'
 numGrupo = os.environ.get('GROUP_NUMBER')
 
 os.chdir('templates')
-call(['mv', 'productpage.html', 'productpage_temporal.html'])
+call(['cp', 'productpage.html', 'productpage_temporal.html'])
 fin = open('productpage_temporal.html', 'r')
 fout = open('productpage.html', 'w')
 
